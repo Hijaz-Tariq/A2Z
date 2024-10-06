@@ -14,9 +14,9 @@ app.use(cors());
 app.use(express.json());
 
 // ROUTES
-app.use("/authRoute", authRoute);
-app.use("/users", userRoute);
-app.use("/parcels", parcelRoute);
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/parcels", parcelRoute);
 
 //SERVER
 const PORT = process.env.PORT;

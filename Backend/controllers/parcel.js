@@ -28,7 +28,7 @@ const getAllParcels = async (req, res) => {
 const updateParcel = async (req, res) => {
   try {
     const parcel = await Parcel.findById(req.params.id);
-    restart.status(201).json(parcel);
+    res.status(201).json(parcel);
   } catch (error) {
     res.status(500).json(error);
   }
