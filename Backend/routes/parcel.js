@@ -1,13 +1,14 @@
 const express = require("express");
 const { createParcel, getAllParcels, updateParcel, getOneParcel, getUserParcel, deleteParcel } = require("../controllers/parcel");
+const { verifyToken, verifyTokenAndAuthorization } = require("../middlewares/verifyToken");
 const router = express.Router();
 
 
 //Add parcel
-router.post("/", createParcel)
+router.post("/", verifyToken, createParcel)
 
 //Get all parcels
-router.get("/", getAllParcels)
+router.get("/", verifyTokenAndAuthorization, getAllParcels)
 
 
 //Update parcel
