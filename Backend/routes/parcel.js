@@ -5,10 +5,10 @@ const router = express.Router();
 
 
 //Add parcel
-router.post("/", verifyToken, createParcel)
+router.post("/", createParcel)
 
 //Get all parcels
-router.get("/", verifyTokenAndAuthorization, getAllParcels)
+router.get("/",  getAllParcels)
 
 
 //Update parcel
