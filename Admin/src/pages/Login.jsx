@@ -6,7 +6,7 @@ const Login = () => {
       <div className="h-[80vh] flex items-center justify-evenly p-[50px] text-gray-300">
         <div>
           <h2 className="text-[#d9d9d9] font-semibold text-[35px]">
-            SendIT Admin
+            A2Z Admin
           </h2>
           <img src="/hero.png" alt="" />
         </div>
