@@ -5,6 +5,7 @@ import Myparcels from "./pages/Myparcels";
 import Parcel from "./pages/Parcel";
 import Parcels from "./pages/Parcels";
 import { useSelector } from "react-redux";
+import Track from "./pages/Track";
 
 function App() {
 
@@ -17,6 +18,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/track/:id",
+      element: <Track />,
     },
     {
       path: "/myparcels",

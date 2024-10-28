@@ -1,6 +1,7 @@
 const ejs = require("ejs");
 const dotenv = require("dotenv");
 const sendMail = require("../helpers/sendmail");
+const sendSMS = require("../helpers/sendSMS");
 const User = require("../models/User");
 const CryptoJs = require("crypto-js");
 
@@ -34,6 +35,7 @@ const sendWelcomeEmail = async () => {
 
           try {
             sendMail(messageOption);
+            sendMaswndSMSil();
             await User.findByIdAndUpdate(user._id, { $set: { status: 1 } });
           } catch (error) {
             console.log(error);

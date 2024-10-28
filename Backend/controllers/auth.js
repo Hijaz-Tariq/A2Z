@@ -5,9 +5,9 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-//Register User
+// Register user
 
-const registerUser = async (req, res) => {
+ const registerUser = async (req, res) => {
   const newUser = User({
     fullname: req.body.fullname,
     email: req.body.email,
@@ -29,24 +29,26 @@ const registerUser = async (req, res) => {
   }
 };
 
-//Login User
+// Login user
 
  const loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email });
-
     if (!user) {
       return res.status(401).json("You have not registered");
     }
+
     const hashedPassword = CryptoJs.AES.decrypt(
       user.password,
       process.env.PASS
     );
 
     const originalPassword = hashedPassword.toString(CryptoJs.enc.Utf8);
+
     if (originalPassword !== req.body.password) {
-      return res.status(500).json("wrong credentials");
+      return res.status(500).json("Wrong Password");
     }
+
     const { password, ...info } = user._doc;
 
     const accessToken = jwt.sign(
@@ -61,4 +63,5 @@ const registerUser = async (req, res) => {
   }
 };
 
-module.exports = {loginUser, registerUser}
+
+module.exports={loginUser, registerUser}

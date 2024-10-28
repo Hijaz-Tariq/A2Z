@@ -1,18 +1,18 @@
 const Parcel = require("../models/Parcel");
 
-//Create a parcel
+// Create a parcel
 
 const createParcel = async (req, res) => {
   try {
-    const newparcel = Parcel(req.body);
-    const parcel = await newparcel.save();
+    const newParcel = Parcel(req.body);
+    const parcel = await newParcel.save();
     res.status(201).json(parcel);
   } catch (error) {
     res.status(500).json(error);
   }
 };
 
-//Get all parcels
+// Get all parcels
 
 const getAllParcels = async (req, res) => {
   try {
@@ -23,7 +23,7 @@ const getAllParcels = async (req, res) => {
   }
 };
 
-//Update the parcel
+// Update the parcel
 
 const updateParcel = async (req, res) => {
   try {
@@ -35,6 +35,7 @@ const updateParcel = async (req, res) => {
 };
 
 // Get one parcel
+
 const getOneParcel = async (req, res) => {
   try {
     const parcel = await Parcel.findById(req.params.id);
@@ -44,11 +45,11 @@ const getOneParcel = async (req, res) => {
   }
 };
 
-// Get user parcel
+// Get User's Parcel
 
 const getUserParcel = async (req, res) => {
   try {
-    const parcels = await Parcel.find({ senderphone: req.bodey.phone }).sort({
+    const parcels = await Parcel.find({ senderemail: req.body.email }).sort({
       createdAt: -1,
     });
     res.status(200).json(parcels);
@@ -57,12 +58,12 @@ const getUserParcel = async (req, res) => {
   }
 };
 
-//Delete a parcel
+// Delete a parcel
 
 const deleteParcel = async (req, res) => {
   try {
     await Parcel.findByIdAndDelete(req.params.id);
-    res.status(201).json("Parcel has been deleted succefully");
+    res.status(201).json("parcel has been deleted successfully");
   } catch (error) {
     res.status(500).json(error);
   }
