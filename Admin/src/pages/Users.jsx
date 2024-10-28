@@ -12,6 +12,7 @@ const Users = () => {
     { field: "_id", headerName: "ID", width: 90 },
     { field: "fullname", headerName: "Full Name", width: 200 },
     { field: "email", headerName: "Email", width: 250 },
+    { field: "phone", headerName: "Phone", width: 250 },
     { field: "age", headerName: "Age", type: "number", width: 100 },
 
     { field: "address", headerName: "Address", width: 300 },
@@ -22,7 +23,10 @@ const Users = () => {
       renderCell: (params) => {
         return (
           <>
-            <FaTrash className="text-red-500 cursor-pointer m-2"  onClick={() => handleDelete(params.row._id)}/>
+            <FaTrash
+              className="text-red-500 cursor-pointer m-2"
+              onClick={() => handleDelete(params.row._id)}
+            />
           </>
         );
       },
@@ -42,15 +46,14 @@ const Users = () => {
     getUsers();
   }, []);
 
-
   const handleDelete = async (id) => {
-      try {
-        await publicRequest(`/users/${id}`);
-        window.location.reload();
-      } catch (error) {
-        console.log(error)
-      }
-  } 
+    try {
+      await publicRequest(`/users/${id}`);
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="m-[30px] bg-[#fff] p-[20px]">

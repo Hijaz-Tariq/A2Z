@@ -3,13 +3,12 @@ import { PieChart } from "@mui/x-charts/PieChart";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 const Home = () => {
-  
   const [parcels, setParcels] = useState([]);
   const [users, setUsers] = useState([]);
 
   const usersCount = users.length;
-  const deliveredCount = parcels.filter(parcel => parcel.status === 3).length;
- const pendingCount = parcels.filter(parcel => parcel.status === 1).length;
+  const deliveredCount = parcels.filter((parcel) => parcel.status === 3).length;
+  const pendingCount = parcels.filter((parcel) => parcel.status === 1).length;
 
   useEffect(() => {
     const getParcels = async () => {
@@ -33,7 +32,6 @@ const Home = () => {
     };
     getUsers();
   }, []);
-
 
   return (
     <div>
