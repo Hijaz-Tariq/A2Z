@@ -13,7 +13,7 @@ const ParcelSchema = mongoose.Schema(
     recipientphone: { type: String, require: true },
     oilQuantity: { type: Number, require: true, default: 0 },
     oliveQuantity: { type: Number, require: true, default: 0 },
-    cost: { type: Number, require: true, },
+    cost: { type: Number, require: true },
     date: { type: String },
     note: { type: String },
     feedback: { type: String },

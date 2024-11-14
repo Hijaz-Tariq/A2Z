@@ -476,44 +476,132 @@ const Parcel = () => {
             <label htmlFor="">بلد التسليم</label>
 
             <select name="rState" onChange={handleChange} value={parcel.rState}>
-              <option value="AR">AR-اركانساس</option>
-              <option value="AZ">AZ-اريزونا</option>
-              <option value="AL">AL - موبيل الاباما</option>
-              <option value="ILL">ILL -شيكاجو </option>
-              <option value="IN">IN -انديانا -شيكاجو</option>
-              <option value="OK">OK - اوكلاهوما</option>
-              <option value="OH">OH- كليفلاند اوهايو</option>
-              <option value="ID">ID- ايداهو</option>
-              <option value="PA">PA-بنسلفانيا -فيلادلفيا</option>
-              <option value="TXH">TX- هيوستن</option>
-              <option value="TXS">TX-سان انطونيو</option>
-              <option value="TXD">TX-دلس</option>
-              <option value="TN">TN-ممفس تنسي</option>
-              <option value="GA">GA-جورجيا-اطلانطا </option>
-              <option value="RI">RI-رود ايلاند</option>
-              <option value="FLM">FL-ميامي</option>
-              <option value="FLT">FL- تامبا</option>
-              <option value="VA">VA-فرجينيا</option>
-              <option value="SC-NC">SC-NC -كارولينا الشمالية والجنوبية</option>
-              <option value="CAL">CA-كاليفورنيا-لوس انجلس </option>
-              <option value="CAS">CA-سان فرانسسيكو كاليفورنيا</option>
-              <option value="KS">KS-كانساس سيتي</option>
-              <option value="KY">KY- كنتاكي</option>
-              <option value="CT">CT-كونتكت</option>
-              <option value="LAP">LA-باتون روج</option>
-              <option value="LAN">LA-نيواورلينز</option>
-              <option value="LAS">LA-شريفبورت </option>
-              <option value="MD">MD-ماريلاند</option>
-              <option value="MA">MA-بوستن</option>
-              <option value="MS">MS-مسيسبي</option>
-              <option value="MO">MO- سانت لويس </option>
-              <option value="MI">MI-مشيغان</option>
-              <option value="MN">MN-منيسوتا</option>
-              <option value="NJ">NJ-نيوجيرسي</option>
-              <option value="NY">NY-نيويورك</option>
-              <option value="NM">NM-نيومكسكو</option>
-              <option value="WA">WA-واشنطن -ستايل</option>
-              <option value="WI">WI-ويسكانسن ملواكي</option>
+            <option value="" disabled selected>
+                     اختر الولاية
+                 </option>
+                <option value="AR" id="Arkansas">
+                  AR-اركانساس
+                </option>
+                <option value="AZ" id="Arizona">
+                  AZ-اريزونا
+                </option>
+                <option value="AL" id="Alabama">
+                  AL - موبيل الاباما
+                </option>
+                <option value="ILL" id="Chicago">
+                  ILL -شيكاجو
+                </option>
+                <option value="IN" id="Indiana">
+                  IN -انديانا -شيكاجو
+                </option>
+                <option value="OK" id="Oklahoma">
+                  OK - اوكلاهوما
+                </option>
+                <option value="OHCl" id="Cleaveland">
+                  OH- كليفلاند اوهايو
+                </option>
+                <option value="OHCS" id="coloumbos">
+                  OH- كولومبوس اوهايو
+                </option>
+                <option value="ID" id="Idaho">
+                  ID- ايداهو
+                </option>
+                <option value="PA" id="Philadelphia">
+                  PA-بنسلفانيا -فيلادلفيا
+                </option>
+                <option value="TXH" id="Houston">
+                  TX- هيوستن
+                </option>
+                <option value="TXS" id="SanAntonio">
+                  TX-سان انطونيو
+                </option>
+                <option value="TXD" id="Dallas">
+                  TX-دلس
+                </option>
+                <option value="TN" id="Tennessee">
+                  TN-ممفس تنسي
+                </option>
+                <option value="GA" id="Georgia">
+                  GA-جورجيا-اطلانطا
+                </option>
+                <option value="RI" id="RhodeIsland">
+                  RI-رود ايلاند
+                </option>
+                <option value="FLM" id="Miami">
+                  FL-ميامي
+                </option>
+                <option value="FLT" id="Tampa">
+                  FL- تامبا
+                </option>
+                <option value="VA" id="Virginia">
+                  VA-فرجينيا
+                </option>
+                <option value="SC-NC" id="NsCarolina">
+                  SC-NC -كارولينا الشمالية والجنوبية
+                </option>
+                <option value="CAL" id="LosAngeles">
+                  CA-كاليفورنيا-لوس انجلس
+                </option>
+                <option value="CAS" id="SanFrancisco">
+                  CA-سان فرانسسيكو كاليفورنيا
+                </option>
+                <option value="CASO" id="SanDiego">
+                  CA-سان دييغو كاليفورنيا
+                </option>
+                <option value="KS" id="Kansas">
+                  KS-كانساس سيتي
+                </option>
+                <option value="KY" id="Kentucky">
+                  KY- كنتاكي
+                </option>
+                <option value="CT" id="Connecticut">
+                  CT-كونتكت
+                </option>
+                <option value="LAP" id="BatonRouge">
+                  LA-باتون روج
+                </option>
+                <option value="LAN" id="NewOrleans">
+                  LA-نيواورلينز
+                </option>
+                <option value="LAS" id="Shreveport">
+                  LA-شريفبورت
+                </option>
+                <option value="MD" id="Maryland">
+                  MD-ماريلاند
+                </option>
+                <option value="MA" id="Boston">
+                  MA-بوستن
+                </option>
+                <option value="MS" id="Mississippi">
+                  MS-مسيسبي
+                </option>
+                <option value="MOS" id="stlouis">
+                  MOS- سانت لويس
+                </option>
+                <option value="MOL" id="leessummit">
+                  MOL- ليز سامت          
+                 </option>
+                <option value="MI" id="Michigan">
+                  MI-مشيغان
+                </option>
+                <option value="MN" id="Minnesota">
+                  MN-منيسوتا
+                </option>
+                <option value="NJ" id="NewJersey">
+                  NJ-نيوجيرسي
+                </option>
+                <option value="NY" id="NewYork">
+                  NY-نيويورك
+                </option>
+                <option value="NM" id="NewMexico">
+                  NM-نيومكسكو
+                </option>
+                <option value="WA" id="Washington">
+                  WA-واشنطن -ستايل
+                </option>
+                <option value="WI" id="Wisconsin">
+                  WI-ويسكانسن ملواكي
+                </option>
             </select>
           </div>
           <div className="flex flex-col my-[20px]">

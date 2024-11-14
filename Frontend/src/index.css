@@ -15,3 +15,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+.input-phone .PhoneInputInput {
+  background-color: white /* Use !important if necessary */
+}
+.input-date {
+  background-color: white;/* Use !important if necessary */
+ color: blue;
+}
+
+@layer base { img {display: initial;}}

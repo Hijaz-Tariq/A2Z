@@ -48,10 +48,10 @@ const Users = () => {
 
   const handleDelete = async (id) => {
     try {
-      await publicRequest(`/users/${id}`);
+      await publicRequest.delete(`/users/${id}`);
       window.location.reload();
     } catch (error) {
-      console.log(error);
+      console.log(error, {id});
     }
   };
 

@@ -23,9 +23,10 @@ mongoose
 
 const run = () => {
   cron.schedule("* * * * * *", () => {
-    sendWelcomeEmail()
+    // console.log("Cron job running..."); 
     // SendParcelPendingEmail()
     sendParcelDeliveredEmail()
+    sendWelcomeEmail()
     
   });
 };

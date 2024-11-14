@@ -47,9 +47,25 @@ const getOneParcel = async (req, res) => {
 
 // Get User's Parcel
 
+// const getUserParcel = async (req, res) => {
+//   try {
+//     const parcels = await Parcel.find({ senderemail: req.body.email }).sort({
+//       createdAt: -1,
+//     });
+//     res.status(200).json(parcels);
+//   } catch (error) {
+//     res.status(500).json(error);
+//   }
+// };
+
 const getUserParcel = async (req, res) => {
   try {
-    const parcels = await Parcel.find({ senderemail: req.body.email }).sort({
+    const parcels = await Parcel.find({
+      $or: [
+        { senderemail: req.body.email },
+        { recipientemail: req.body.email }
+      ]
+    }).sort({
       createdAt: -1,
     });
     res.status(200).json(parcels);

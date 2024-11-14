@@ -7,12 +7,17 @@ const {
   getUserParcel,
   deleteParcel,
 } = require("../controllers/parcel");
+const smsController = require('../controllers/smsController');
 const {
   verifyToken,
   verifyTokenAndAuthorization,
 } = require("../middlewares/verifyToken");
 const router = express.Router();
 const Parcel = require("../models/Parcel");
+
+// POST endpoint for sending SMS - Move this to the top
+router.post('/send-sms', smsController.sendSMS);
+
 //Add parcel
 router.post("/", createParcel);
 

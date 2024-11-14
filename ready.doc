@@ -1,0 +1,40 @@
+
+//   return (
+//     <>
+
+
+
+//      
+//           <div className="bg-white text-black my-2">
+//             <div className="flex flex-col items-center">
+//         
+//               <h1 className="bg-white p-2 m-2 w-fit"></h1>
+//             </div>
+//             <div className="flex justify-between m-2 p-2">
+//               <div className="flex flex-col">
+//                
+//                
+//                
+//             
+//               </div>
+//               <div className="flex flex-col w-50px bg-white">
+//                 
+//            
+//               </div>
+//             </div>
+
+//         
+               />
+             </h1>
+             <div className="flex justify-between p-2">
+               <h3 className="flex flex-col">{user.currentUser.fullname}</h3>
+               <h1 className="mt-4 p-4 flex flex-col">www.a2z-express.com</h1>
+               <footer></footer>
+             </div>
+           </div>
+      
+     </>
+   );
+ };
+
+ export default Label;
