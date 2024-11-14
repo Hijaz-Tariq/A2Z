@@ -9,17 +9,20 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = twilio(accountSid, authToken);
 
 async function createMessage() {
-  const msgOptions = await client.messages.create({
-    body: "This is the ship that made the Kessel Run in fourteen parsecs?",
-    from: "+13092478728",
-    to: "+970569151111",
-  });
+  // const msgOptions = await client.messages.create({
+  //   body: "Welcome",
+  //   // from: "+16202343494",
+  //   messagingServiceSid: "MG35afce3b2d59a5bfc436516b12926eaf",
+  //   to: "+970569151111",
+  // });
   try {
-    const message = await client.messages.create(msgOptions);
+    // const message = await client.messages.create(msgOptions);
+    
+    console.log('Sent')
   } catch (error) {
     console.log(error);
   }
-  console.log(message.body);
+  // console.log(message.body);
 }
 
 createMessage("Hello From Twilio");

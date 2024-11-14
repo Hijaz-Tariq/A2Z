@@ -87,7 +87,7 @@ const Parcel = () => {
     try {
       // Prepare the updated status
       const updatedStatus = {
-        status: 2, // Set status to 2
+        status: 3, // Set status to 3
       };
 
       // Send a PUT request to update the parcel
@@ -99,7 +99,7 @@ const Parcel = () => {
       // Update the parcel state with the new status
       setParcel((prevParcel) => ({
         ...prevParcel,
-        status: 2,
+        status: 3,
       }));
 
       // Optional: Log the updated response
@@ -146,21 +146,43 @@ const Parcel = () => {
             </ul>
 
             <button
-              className={
-                parcel.status === 1
-                  ? "bg-[#555] text-white w-[100px] cursor-pointer p-[5px]"
-                  : "bg-[#21b134] text-white w-[100px] cursor-pointer p-[5px]"
-              }
+              className={(() => {
+                switch (parcel.status) {
+                  case 0:
+                    return "bg-[#555] text-white w-[100px] cursor-pointer padding-[5px]";
+                  case 1:
+                    return "bg-[#ffa500] text-white w-[100px] cursor-pointer padding-[5px]"; // Example for 'Pending'
+                  case 2:
+                    return "bg-[#45de52] text-white w-[100px] cursor-pointer padding-[5px]"; // Example for 'In Transit'
+                  case 3:
+                    return "bg-[#007bff] text-white w-[100px] cursor-pointer padding-[5px]"; // Example for 'Delivered'
+                  default:
+                    return "bg-[#ccc] text-white w-[100px] cursor-pointer padding-[5px]"; // Fallback style
+                }
+              })()}
             >
-              {parcel.status === 1 ? "Pending" : "تم التسليم"}
+              {(() => {
+                switch (parcel.status) {
+                  case 0:
+                    return "Picked up";
+                  case 1:
+                    return "In Transit";
+                  case 2:
+                    return "Out of Delivery";
+                  case 3:
+                    return "Delivered";
+                  default:
+                    return "Unknown Status"; // Fallback text
+                }
+              })()}
             </button>
           </div>
 
           <div className="flex-1">
-            <ul className="m-3 text-[#444]">
+            {/* <ul className="m-3 text-[#444]">
               <li className="mt-3">Sender Email: {parcel.senderemail}</li>
               <li className="mt-3">Recipient Email: {parcel.recipientemail}</li>
-            </ul>
+            </ul> */}
 
             <textarea
               cols={50}
@@ -168,18 +190,18 @@ const Parcel = () => {
               className="outline-none p-[50px] m-[20px] bg-[#d9d9d9] text-[#555]"
               placeholder="Leave a feedback"
             ></textarea>
-          <input type="checkbox" />
+            <input type="checkbox" />
             <label className="text-black"> {parcel.paid ?  "" : "تم الدفع"}</label>
             <button
-              disabled={parcel.status === 2}
+              disabled={parcel.status === 3}
               onClick={handleUpdate}
               className={
-                parcel.status !== 2
+                parcel.status !== 3
                   ? "bg-[#1e1e1e] w-[200px] p-[10px] text-white cursor-pointer m-[20px]"
                   : ""
               }
             >
-              {parcel.status !== 2 ? "تأكيد التسليم" : ""}
+              {parcel.status !== 3 ? "تأكيد التسليم" : ""}
             </button>
           </div>
         </div>

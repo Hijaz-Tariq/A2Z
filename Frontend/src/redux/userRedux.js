@@ -31,10 +31,17 @@ const userSlice = createSlice({
 
       state.currentUser = null;
     },
+
+       // Add the updatePhone action here
+       updatePhone: (state, action) => {
+        if (state.currentUser) {
+          state.currentUser.phone = action.payload; // Update the phone number in the currentUser object
+        }
+      },
   },
 });
 
-export const { loginFailure, loginStart, loginSuccess, logOut } =
+export const { loginFailure, loginStart, loginSuccess, logOut, updatePhone } =
   userSlice.actions;
 
 export default userSlice.reducer;

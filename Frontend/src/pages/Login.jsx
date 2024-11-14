@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Navigate} from "react-router-dom"
+import { Navigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { login } from "../redux/apiCalls";
@@ -24,14 +24,14 @@ const Login = () => {
       try {
         setLoading(true);
         await login(dispatch, { email, password });
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
         console.log(error);
-        setLoading(false)
+        setLoading(false);
       }
     }
   };
-console.log(user.currentUser);
+  console.log(user.currentUser);
   return (
     <div>
       <Navbar />
@@ -75,11 +75,15 @@ console.log(user.currentUser);
             className="bg-[#1e1e1e] w-[350px] p-[15px] text-white font-semibold text-[18px] m-[10%]"
             onClick={handleLogin}
           >
-            {loading ? 'Loading...' : Login}
-            {user.currentUser && <Navigate to="/myparcels" /> } 
+            {loading ? "Loading..." : Login}
+            {user.currentUser && <Navigate to="/myparcels" />}
           </button>
 
-          {error && <span className="text-red-500">Please make sure that you have used correct email and password</span>}
+          {error && (
+            <span className="text-red-500">
+              Please make sure that you have used correct email and password
+            </span>
+          )}
         </div>
       </div>
 

@@ -60,7 +60,7 @@ const BarcodeReader = () => {
     <div>
       {/* <h1 className="text-h6 text-center">Barcode Reader QuaggaJs</h1> */}
       <div className="text-center">
-        <button className="q-btn q-btn--primary" onClick={initReader}>
+        <button className="q-btn q-btn--primary bg-blue-600 rounded-lg p-2" onClick={initReader}>
           Start Reading
         </button>
       </div>
@@ -137,6 +137,83 @@ export default BarcodeReader;
 //         alert("Erro ao copiar Código de barras!");
 //       });
 //   };
+
+//   return (
+//     <div>
+//       <div className="text-center">
+//         <button className="q-btn q-btn--primary" onClick={initReader}>
+//           Start Reading
+//         </button>
+//       </div>
+//       {code && (
+//         <p className="text-h6 text-center q-mt-lg">
+//           Código Lido: {code}
+//           <button onClick={copyCode} className="q-btn q-btn--blue">
+//             Copiar
+//           </button>
+//         </p>
+//       )}
+//       {cameraStatus && <div className="text-center" id="reader"></div>}
+//     </div>
+//   );
+// };
+
+// export default BarcodeReader;
+
+
+//--------------------------------------NOv4-- to be checked
+
+// import { useState, useEffect } from "react";
+// import Quagga from "quagga";
+
+// const BarcodeReader = () => {
+//   const [code, setCode] = useState("");
+//   const [cameraStatus, setCameraStatus] = useState(false);
+
+//   const initReader = () => {
+//     setCameraStatus(true);
+//     Quagga.init(
+//       {
+//         inputStream: {
+//           name: "Live",
+//           type: "LiveStream",
+//           target: document.querySelector("#reader"),
+//         },
+//         decoder: {
+//           readers: ["code_128_reader"],
+//         },
+//       },
+//       (err) => {
+//         if (err) {
+//           console.log(err);
+//           return;
+//         }
+//         console.log("Initialization finished. Ready to start");
+//         Quagga.start();
+//         Quagga.onDetected((data) => {
+//           setCode(data.codeResult.code); // Set the detected code to state
+//           console.log("Detected:", data.codeResult.code);
+//         });
+//       }
+//     );
+//   };
+
+//   const copyCode = () => {
+//     navigator.clipboard
+//       .writeText(code)
+//       .then(() => {
+//         alert("Código de barras copiado com sucesso!");
+//       })
+//       .catch(() => {
+//         alert("Erro ao copiar Código de barras!");
+//       });
+//   };
+
+//   useEffect(() => {
+//     return () => {
+//       Quagga.stop(); // Stop Quagga on component unmount
+//     };
+//   }, []);
 
 //   return (
 //     <div>

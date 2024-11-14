@@ -46,6 +46,7 @@ dotenv.config();
     const originalPassword = hashedPassword.toString(CryptoJs.enc.Utf8);
 
     if (originalPassword !== req.body.password) {
+      console.log(originalPassword)
       return res.status(500).json("Wrong Password");
     }
 
